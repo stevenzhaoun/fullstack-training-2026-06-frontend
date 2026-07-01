@@ -1,14 +1,14 @@
 import { Drawer, Toolbar, Box, List, ListItem, ListItemButton, ListItemText } from '@mui/material'
+import { Link } from 'react-router'
 
 const drawerWidth = 240;
 
 const links = [
-    {label: 'Dashboard'},
-    {label: 'Users'},
-    {label: 'Roles'},
-    {label: 'Products'},
-    {label: 'Orders'},
-
+    {label: 'Dashboard', path: '/dashboard'},
+    {label: 'Users', path: '/users'},
+    {label: 'Roles', path: '/roles'},
+    {label: 'Products', path: '/products'},
+    {label: 'Orders', path: '/orders'},
 ]
 
 export default function SideBar() {
@@ -24,13 +24,14 @@ export default function SideBar() {
         <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
           <List>
-            {links.map(({label}) => (
-              <ListItem key={label} disablePadding>
-                <ListItemButton>
-                
-                  <ListItemText primary={label} />
-                </ListItemButton>
-              </ListItem>
+            {links.map(({label, path}) => (
+                <Link to={path}>
+                    <ListItem key={label} disablePadding>
+                        <ListItemButton>
+                            <ListItemText primary={label} />
+                        </ListItemButton>
+                    </ListItem>
+              </Link>
             ))}
           </List>
         </Box>
