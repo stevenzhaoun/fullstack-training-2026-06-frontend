@@ -1,10 +1,7 @@
 import axios from 'axios'
-
+console.log(import.meta.env.VITE_API_URL);
 const client = axios.create({
-    baseURL: 'http://localhost:3000',
-    // headers: {
-    //     Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGVJZCI6MSwiaWF0IjoxNzgyODc1MTQ0LCJleHAiOjE3ODI5NjE1NDR9.2qD7FhK6fZVDh-8qdr5Xg7dsXmysP1l_lCKHh_YHldE`
-    // }
-})
+    baseURL: import.meta.env.VITE_API_URL,
+});
 
-export default client
+export default client;
