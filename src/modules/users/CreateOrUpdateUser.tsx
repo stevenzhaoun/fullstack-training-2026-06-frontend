@@ -1,5 +1,5 @@
 import { Box, CircularProgress, InputLabel, MenuItem, FormControl, Select, TextField, Typography, Button, type SelectChangeEvent } from "@mui/material";
-import type { Role, User } from "../../types";
+import type { Role } from "../../types";
 import { useState } from "react";
 import { createUser, getUser, updateUser } from "../../api/users.api";
 import { useNavigate, useParams } from "react-router";
@@ -12,7 +12,7 @@ export default function CreateOrUpdateUser() {
     const userId = params.id
     const navigate = useNavigate()
     const isAddView = userId === 'add';
-    const {data: user, isLoading: isLoadingUser, setData: setUser} = useDataLoad<User>(async () => !isAddView && await getUser(userId))
+    const {data: user, isLoading: isLoadingUser, setData: setUser} = useDataLoad<any>(async () => isAddView ? { name: '', email: '', password: '' } : await getUser(userId!))
     const {data: roles, isLoading: isLoadingRoles} = useDataLoad<Role[]>(listRoles)
 
     const handleChange = (fieldName: string) => {
@@ -34,10 +34,10 @@ export default function CreateOrUpdateUser() {
     const handleSubmit = async () => {
         setIsSubmitting(true)
         if(isAddView) {
-            const reponse = await createUser(user.name, user.email, user.password, Number(user.role_id))
+            await createUser(user.name, user.email, user.password, Number(user.role_id))
             navigate('/users')
         } else {
-            const reponse = await updateUser(userId, user.name, user.email, Number(user.role_id))
+            await updateUser(userId!, user.name, user.email, Number(user.role_id))
         }
         setIsSubmitting(false)
     }
@@ -72,7 +72,7 @@ export default function CreateOrUpdateUser() {
                     label="Role"
                     onChange={handleRoleChange}
                 >
-                    {roles.map((role) => (
+                    {roles!.map((role) => (
                         <MenuItem key={role.id} value={role.id?.toString()}>{role.name}</MenuItem>
                     ))}
                 </Select>

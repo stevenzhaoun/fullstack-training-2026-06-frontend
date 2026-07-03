@@ -11,7 +11,7 @@ export const useDataLoad = <T>(apiLoader: () => Promise<T>) => {
 
             const response = await apiLoader()
             setData(response)
-        } catch (error) {
+        } catch (error: any) {
             console.log(error)
             setError(error.response.data.error)
         } finally {

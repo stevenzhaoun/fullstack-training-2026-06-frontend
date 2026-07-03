@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { clearUserData, setUserData as setUserDataAction } from "../slices/userSlice"
 import { login as loginApi } from "../api/users.api"
 import { useNavigate } from "react-router"

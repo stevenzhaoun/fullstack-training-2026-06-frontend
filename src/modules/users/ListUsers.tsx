@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
 import { Alert, Box, Button, Typography } from "@mui/material";
 import { listUsers } from "../../api/users.api";
-import type { Role, User } from "../../types";
+import type { Role } from "../../types";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import { useNavigate } from "react-router";
 import { useDataLoad } from "../../hooks/useDataLoad";

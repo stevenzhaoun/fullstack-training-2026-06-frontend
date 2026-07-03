@@ -15,7 +15,7 @@ export default function Login() {
         setError(null)
         try {
             await login(email, password)
-        } catch (error) {
+        } catch (error: any) {
             console.log(error.response.data.error)
             setError(error.response.data.error)
         }finally {

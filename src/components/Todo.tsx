@@ -2,12 +2,12 @@ import { Button, TextField } from '@mui/material'
 import { useState } from 'react'
 
 function Todo() {
-  const [todos, setTodos] = useState([]) // hooks
+  const [todos, setTodos] = useState<string[]>([])
   
   // controlled element
   const [inputValue, setInputValue] = useState('')
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
   }
 
