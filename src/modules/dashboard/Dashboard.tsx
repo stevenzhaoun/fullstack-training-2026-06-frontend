@@ -41,7 +41,7 @@ export default function Dashboard() {
     return <div>
         <BarChart
             xAxis={[{data: dates, label: 'Orders'}]}
-            series={[{data: seriesData, barLabel: (item) => item.value.toString()}]}
+            series={[{data: seriesData, barLabel: (item) => String(item.value ?? '')}]}
             height={300}
             title="Orders by Date"
         />
