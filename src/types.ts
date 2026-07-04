@@ -10,3 +10,14 @@ export type Role = {
     id?: number
     name: string
 }
+
+export type Order = {
+    id: number;
+    email: string;
+    name: string;
+    createdAt: string;
+    totalPrice: number;
+    products: {
+        id: number;
+    }[];
+}

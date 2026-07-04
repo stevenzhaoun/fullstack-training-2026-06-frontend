@@ -4,10 +4,7 @@ import ListUsers from './modules/users/ListUsers'
 import CreateOrUpdateUser from './modules/users/CreateOrUpdateUser'
 import Login from './components/Login'
 import RootContainer from './components/RootContainer'
-
-const Dashboard = () => {
-  return <div>Dashboard</div>
-}
+import Dashboard from './modules/dashboard/Dashboard'
 
 const Roles = () => {
   return <div>Roles</div>
