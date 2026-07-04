@@ -5,6 +5,7 @@ import CreateOrUpdateUser from './modules/users/CreateOrUpdateUser'
 import Login from './components/Login'
 import RootContainer from './components/RootContainer'
 import Dashboard from './modules/dashboard/Dashboard'
+import Chat from './modules/chat/Chat'
 
 const Roles = () => {
   return <div>Roles</div>
@@ -29,6 +30,7 @@ function App() {
           <Route path="/roles" element={<Roles />} />
           <Route path="/products" element={<Products />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/chat" element={<Chat />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>

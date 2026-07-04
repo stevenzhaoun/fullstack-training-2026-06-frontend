@@ -31,7 +31,8 @@ export default function CreateOrUpdateUser() {
         })
     }
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
         setIsSubmitting(true)
         if(isAddView) {
             await createUser(user.name, user.email, user.password, Number(user.role_id))

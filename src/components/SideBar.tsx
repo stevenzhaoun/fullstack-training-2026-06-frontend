@@ -9,6 +9,7 @@ const links = [
     {label: 'Roles', path: '/roles'},
     {label: 'Products', path: '/products'},
     {label: 'Orders', path: '/orders'},
+    {label: 'AI Chat', path: '/chat'},
 ]
 
 export default function SideBar() {
